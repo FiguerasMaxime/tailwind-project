@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>[Lab' Unit Mobile A2] Maxime Figueras</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
+
+	<!-- Font Awesome if you need it
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+  -->
+	<link rel="stylesheet" href="https://unpkg.com/tailwindcss/dist/tailwind.min.css">
+	<!--Replace with your tailwind.css once created-->
+
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+
+	<!-- Define your gradient here - use online tools to find a gradient matching your branding-->
+	<style>
+
+		html {
+			scroll-behavior: smooth;
+		}
+
+		.gradient {
+			background: linear-gradient(90deg, #6A7FF4 0%, #41BCA0 100%);
+		}
+
+		#icon-lab {
+			width: 30px;
+			height: 30px;
+		}
+
+		#icon-lab .bubbles {
+			-webkit-animation: bubbles linear 2s infinite;
+			animation: bubbles linear 2s infinite;
+			-webkit-transform-origin: 50% 50%;
+			transform-origin: 50% 50%;
+		}
+
+		#icon-lab .chemical {
+			animation: waving linear 4s infinite alternate-reverse;
+			-webkit-transform-origin: 50% 50%;
+			transform-origin: 50% 50%;
+		}
+
+		@-webkit-keyframes bubbles {
+			0% {
+				opacity: 1;
+				-webkit-transform: translate(0px, 0px);
+				transform: translate(0px, 0px);
+			}
+
+			25% {
+				-webkit-transform: translate(11px, -10px);
+				transform: translate(11px, -10px);
+			}
+
+			50% {
+				-webkit-transform: translate(33px, -24px);
+				transform: translate(33px, -24px);
+			}
+
+			75% {
+				-webkit-transform: translate(7px, -54px);
+				transform: translate(7px, -54px);
+			}
+
+			100% {
+				opacity: 0;
+				-webkit-transform: translate(32px, -68px);
+				transform: translate(32px, -68px);
+			}
+		}
+
+		@keyframes bubbles {
+			0% {
+				opacity: 1;
+				-webkit-transform: translate(0px, 0px);
+				transform: translate(0px, 0px);
+			}
+
+			25% {
+				-webkit-transform: translate(11px, -10px);
+				transform: translate(11px, -10px);
+			}
+
+			50% {
+				-webkit-transform: translate(33px, -24px);
+				transform: translate(33px, -24px);
+			}
+
+			75% {
+				-webkit-transform: translate(7px, -54px);
+				transform: translate(7px, -54px);
+			}
+
+			100% {
+				opacity: 0;
+				-webkit-transform: translate(32px, -68px);
+				transform: translate(32px, -68px);
+			}
+		}
+
+		@-webkit-keyframes waving {
+			0% {
+				-webkit-transform: scaleX(1);
+				transform: scaleX(1);
+			}
+
+			50% {
+				-webkit-transform: scaleX(0.2);
+				transform: scaleX(0.2);
+			}
+
+			100% {
+				-webkit-transform: scaleX(1);
+				transform: scaleX(1);
+			}
+
+			100% {
+				-webkit-transform: scaleX(1);
+				transform: scaleX(1);
+			}
+		}
+
+		@keyframes waving {
+			0% {
+				-webkit-transform: scaleX(1);
+				transform: scaleX(1);
+			}
+
+			50% {
+				-webkit-transform: scaleX(0.2);
+				transform: scaleX(0.2);
+			}
+
+			100% {
+				-webkit-transform: scaleX(1);
+				transform: scaleX(1);
+			}
+
+			100% {
+				-webkit-transform: scaleX(1);
+				transform: scaleX(1);
+			}
+		}
+	</style>
+
+</head>
+
+<body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
+
+	<!--Nav-->
+	<nav id="header" class="fixed w-full z-30 top-0 text-white">
+
+		<div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
+
+			<div class="pl-4 flex items-center">
+				<a class="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-2xl"
+					href="#">
+					<!--Icon from: http://www.potlabicons.com/ -->
+					<svg class="h-8 fill-current inline" id="icon-lab" xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 512 512">
+						<path fill="#2a2a31"
+							d="M454.416 407.678L326 179.381V58.286c11.641-4.127 20-15.248 20-28.286 0-16.542-13.458-30-30-30H196c-16.542 0-30 13.458-30 30 0 13.038 8.359 24.159 20 28.286v121.095L57.584 407.678c-12.328 21.916-12.109 47.959.584 69.663C70.86 499.043 93.448 512 118.59 512h274.82c25.142 0 47.729-12.957 60.422-34.659 12.693-21.704 12.912-47.747.584-69.663zm-249.7-220.776A9.996 9.996 0 0 0 206 182V60h10c5.522 0 10-4.478 10-10s-4.478-10-10-10h-20c-5.514 0-10-4.486-10-10s4.486-10 10-10h120c5.514 0 10 4.486 10 10s-4.486 10-10 10h-20c-5.522 0-10 4.478-10 10s4.478 10 10 10h10v122c0 1.718.442 3.405 1.284 4.902l58.941 104.787c-35.995-2.915-71.865 4.365-104.821 21.43-42.366 21.924-89.529 25.784-134 11.227l77.312-137.444zm231.851 280.342C427.502 482.745 411.368 492 393.41 492H118.59c-17.958 0-34.092-9.255-43.157-24.756-9.067-15.503-9.224-34.106-.417-49.762l42.408-75.392c20.576 7.185 41.84 10.812 63.437 10.812 3.197 0 6.402-.079 9.613-.238 27.905-1.382 54.862-8.711 80.124-21.784 33.792-17.496 70.959-23.536 107.783-17.581l58.604 104.183c8.806 15.656 8.65 34.259-.418 49.762z" />
+						<path class="bubbles" fill="#ea3970"
+							d="M216 232c-16.542 0-30 13.458-30 30s13.458 30 30 30 30-13.458 30-30-13.458-30-30-30zm0 40c-5.514 0-10-4.486-10-10s4.486-10 10-10 10 4.486 10 10-4.486 10-10 10z" />
+						<path class="chemical" fill="#ea3970"
+							d="M376,432H176c-5.522,0-10,4.478-10,10c0,5.522,4.478,10,10,10h200c5.522,0,10-4.478,10-10C386,436.478,381.522,432,376,432z" />
+					</svg>
+					[Lab' Unit Mobile A2] Maxime Figueras
+				</a>
+			</div>
+
+
+
+			<div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20"
+				id="nav-content">
+				<ul class="list-reset lg:flex justify-end flex-1 items-center">
+					<li class="mr-3">
+						<a class="inline-block toggleColour text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
+							href="#gitInit">Git init</a>
+					</li>
+					<li class="mr-3">
+						<a class="inline-block toggleColour text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
+							href="#gitAdd">Git add</a>
+					</li>
+					<li class="mr-3">
+						<a class="inline-block toggleColour text-white no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
+							href="#gitCommit">Git commit</a>
+					</li>
+				</ul>
+				<a id="navAction"
+					class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75" href="#gitPush">Git
+					push</a>
+			</div>
+		</div>
+
+		<hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
+	</nav>
+
+	<!-- SECTION PRESENTATION -->
+
+	<div class="pt-24">
+
+		<div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+			<!--Left Col-->
+			<div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
+				<p class="uppercase tracking-loose w-full">Elève de Pierre Grimaud</p>
+				<h1 class="my-4 text-5xl font-bold leading-tight">Développeur git(ou pas)</h1>
+				<p class="leading-normal text-2xl mb-8">C’est une bonne situation ça scribe ? </p>
+				<p class="leading-normal mt-4">Vous savez, moi je ne crois pas qu’il y ait de bonne ou de mauvaise
+					situation. Moi, si je devais résumer ma vie aujourd’hui avec vous, je dirais que c’est d’abord des
+					rencontres.</p>
+
+
+
+				<a
+					class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg" href="#gitInit">Git
+					init</a>
+
+			</div>
+			<!--Right Col-->
+			<div class="w-full md:w-3/5 py-6 text-center">
+				<img class="w-full md:w-4/5 z-50" src="mobile-presentation.svg">
+			</div>
+
+		</div>
+
+	</div>
+
+
+	<div class="relative -mt-12 lg:-mt-24">
+		<svg viewBox="0 0 1428 174" version="1.1" xmlns="http://www.w3.org/2000/svg"
+			xmlns:xlink="http://www.w3.org/1999/xlink">
+			<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+				<g transform="translate(-2.000000, 44.000000)" fill="#FFFFFF" fill-rule="nonzero">
+					<path
+						d="M0,0 C90.7283404,0.927527913 147.912752,27.187927 291.910178,59.9119003 C387.908462,81.7278826 543.605069,89.334785 759,82.7326078 C469.336065,156.254352 216.336065,153.6679 0,74.9732496"
+						opacity="0.100000001"></path>
+					<path
+						d="M100,104.708498 C277.413333,72.2345949 426.147877,52.5246657 546.203633,45.5787101 C666.259389,38.6327546 810.524845,41.7979068 979,55.0741668 C931.069965,56.122511 810.303266,74.8455141 616.699903,111.243176 C423.096539,147.640838 250.863238,145.462612 100,104.708498 Z"
+						opacity="0.100000001"></path>
+					<path
+						d="M1046,51.6521276 C1130.83045,29.328812 1279.08318,17.607883 1439,40.1656806 L1439,120 C1271.17211,77.9435312 1140.17211,55.1609071 1046,51.6521276 Z"
+						id="Path-4" opacity="0.200000003"></path>
+				</g>
+				<g transform="translate(-4.000000, 76.000000)" fill="#FFFFFF" fill-rule="nonzero">
+					<path
+						d="M0.457,34.035 C57.086,53.198 98.208,65.809 123.822,71.865 C181.454,85.495 234.295,90.29 272.033,93.459 C311.355,96.759 396.635,95.801 461.025,91.663 C486.76,90.01 518.727,86.372 556.926,80.752 C595.747,74.596 622.372,70.008 636.799,66.991 C663.913,61.324 712.501,49.503 727.605,46.128 C780.47,34.317 818.839,22.532 856.324,15.904 C922.689,4.169 955.676,2.522 1011.185,0.432 C1060.705,1.477 1097.39,3.129 1121.236,5.387 C1161.703,9.219 1208.621,17.821 1235.4,22.304 C1285.855,30.748 1354.351,47.432 1440.886,72.354 L1441.191,104.352 L1.121,104.031 L0.457,34.035 Z">
+					</path>
+				</g>
+			</g>
+		</svg>
+	</div>
+
+
+
+	<section class="bg-white border-b py-8" id="gitInit">
+		<div class="container max-w-5xl mx-auto m-8">
+			<h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">Présentation</h1>
+			<div class="w-full mb-4">
+				<div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+			</div>
+
+			<div class="flex flex-wrap">
+				<div class="w-5/6 sm:w-1/2 p-6">
+					<h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">Meilleur élève de pierre grimaud</h3>
+					<p class="text-gray-600 mb-8">Pour me présenter je suis en 2ème année le meilleur axe à
+						l'IIM.<br />It's a bird? It's a plane? <span class="font-bold">No it's me !</span></p>
+					<p class="text-gray-600 mt-4">"That's what i do. I drink and i know things" <span
+							class="italic">-TYRION LANNISTER (GOT)</span></p>
+
+				</div>
+				<div class="w-full sm:w-1/2 p-6">
+					<img src="mobile2.svg" alt="mobilesvg">
+				</div>
+			</div>
+
+
+			<div class="flex flex-wrap flex-col-reverse sm:flex-row">
+				<div class="w-full sm:w-1/2 p-6 mt-6">
+					<img src="mobile3.svg" alt="mobilesvg">
+				</div>
+				<div class="w-full sm:w-1/2 p-6 mt-6">
+					<div class="align-middle">
+						<h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">LAB MOBIIIILE</h3>
+						<p class="text-gray-600 mt-8">Dans le meilleur axe, on a une structure qui accompagne les
+							rêveurs comme moi ! Et au sein de cette structure existe des <span class="font-bold">LAB
+								UNIT</span>.<br /> J'ai pas besoin de le redire mais les mobiles sont les meilleurs.</p>
+						<p class="text-gray-800 mt-8">Retrouvez moi les 2 premiers jours de la PGW si vous voulez voir
+							mon beau front ! Je serais en tant que <span class="font-bold">Manager IIM</span>.</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- SECTION PROJETS -->
+
+	<section class="bg-white border-b py-8" id="gitAdd">
+
+		<div class="container mx-auto flex flex-wrap pt-4 pb-12">
+
+			<h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">Projets</h1>
+			<div class="w-full mb-4">
+				<div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+			</div>
+
+			<div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
+				<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
+					<a href="#" class="flex flex-wrap no-underline hover:no-underline">
+						<p class="w-full text-gray-600 text-xs md:text-sm px-6">Projet scolaire</p>
+						<div class="w-full font-bold text-xl text-gray-800 px-6">Projet Hackathon A1 en 48h</div>
+						<p class="text-gray-800 text-base px-6 mb-5">
+							Projet étudiant consistant à la réalisation d'un site qui promouvoit une application pour un
+							portail étudiant.
+						</p>
+					</a>
+				</div>
+				<div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
+					<div class="flex items-center justify-center">
+						<a class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg"
+							href="https://figuerasmaxime.github.io/hackathonA1/">En voir plus</a>
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
+				<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
+					<a href="#" class="flex flex-wrap no-underline hover:no-underline">
+						<p class="w-full text-gray-600 text-xs md:text-sm px-6">Stages</p>
+						<div class="w-full font-bold text-xl text-gray-800 px-6">Web Stellar</div>
+						<p class="text-gray-800 text-base px-6 mb-5">
+							Projet fait en stage dans lequel j'expérimente l'UI, UX, WebGL et three.js
+						</p>
+					</a>
+				</div>
+				<div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
+					<div class="flex items-center justify-center">
+						<a class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg"
+							href="https://figuerasmaxime.github.io/webstellar.github.io/">En voir plus</a>
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
+				<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
+					<a href="#" class="flex flex-wrap no-underline hover:no-underline">
+						<p class="w-full text-gray-600 text-xs md:text-sm px-6">Freelance</p>
+						<div class="w-full font-bold text-xl text-gray-800 px-6">Site Freelance en développement</div>
+						<p class="text-gray-800 text-base px-6 mb-5">
+							Qui dit freelance en dév, dit avoir son site ! Voici le début...va voir :)
+						</p>
+					</a>
+				</div>
+				<div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
+					<div class="flex items-center justify-center">
+						<a class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg"
+							href="https://figuerasmaxime.github.io/freelance/">En voir plus</a>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+
+	</section>
+
+	<!-- SECTION EXPERIENCES PRO-->
+
+	<section class="bg-white border-b py-8" id="gitCommit"> 
+		<div class="container max-w-5xl mx-auto m-8">
+			<h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">Expérience professionnelles</h1>
+			<div class="w-full mb-4">
+				<div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+			</div>
+
+			<div class="flex flex-wrap flex-col-reverse sm:flex-row">
+				<div class="w-full sm:w-1/2 p-6 mt-6">
+					<img src="mobile4.svg" alt="mobilesvg">
+				</div>
+				<div class="w-full sm:w-1/2 p-6 mt-6">
+					<div class="align-middle">
+						<h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">PARCOURS</h3>
+						<p class="text-gray-600 mt-8">Mon parcours se résume à l'IIM, je reste le meilleur élève de Pierre Grimaud ! <br> Mes performances en cours :</p>
+						<p class="text-gray-800 mt-8 font-bold">- 15ème sur à peu près 30 sur le kahoot (grosse performance)</p>
+						<p class="text-gray-800 font-bold">- Réussir à créer un repository git et push en 30sec !</p>
+						<p class="text-gray-800 font-bold">- Ecrire les yeux fermés : git commit -m "pierre jtm"</p>
+					</div>
+				</div>
+
+			</div>
+
+
+			<div class="flex flex-wrap">
+				<div class="w-5/6 sm:w-1/2 p-6">
+					<h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">JOBS</h3>
+					<p class="text-gray-600 mb-8">Alors la c'est une bonne question.</p>
+					<p class="text-gray-600 mt-4">Hey <span class="font-bold">P.IER.RE</span> si tu cherches un jeune qui a soif d'apprendre autant en front-end qu'en back-end, je suis ton homme :)</p>
+					<p class="text-gray-800 mt-8 font-bold">IPV4 :203.0.120.195</p>
+					<p class="text-gray-800 font-bold">IPV6 :2001:0620:0000:0000:0211:24FF:FE80:C12C</p>
+					<p class="text-gray-600 mt4">TROP ATTENTIF EN COURS !!</p>
+
+				</div>
+				<div class="w-full sm:w-1/2 p-6">
+					<img src="mobile5.svg" alt="mobilesvg">
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Change the colour #f8fafc to match the previous section colour -->
+	<svg class="wave-top" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg"
+		xmlns:xlink="http://www.w3.org/1999/xlink">
+		<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+			<g transform="translate(-1.000000, -14.000000)" fill-rule="nonzero">
+				<g class="wave" fill="#f8fafc">
+					<path
+						d="M1440,84 C1383.555,64.3 1342.555,51.3 1317,45 C1259.5,30.824 1206.707,25.526 1169,22 C1129.711,18.326 1044.426,18.475 980,22 C954.25,23.409 922.25,26.742 884,32 C845.122,37.787 818.455,42.121 804,45 C776.833,50.41 728.136,61.77 713,65 C660.023,76.309 621.544,87.729 584,94 C517.525,105.104 484.525,106.438 429,108 C379.49,106.484 342.823,104.484 319,102 C278.571,97.783 231.737,88.736 205,84 C154.629,75.076 86.296,57.743 0,32 L0,0 L1440,0 L1440,84 Z">
+					</path>
+				</g>
+				<g transform="translate(1.000000, 15.000000)" fill="#FFFFFF">
+					<g
+						transform="translate(719.500000, 68.500000) rotate(-180.000000) translate(-719.500000, -68.500000) ">
+						<path
+							d="M0,0 C90.7283404,0.927527913 147.912752,27.187927 291.910178,59.9119003 C387.908462,81.7278826 543.605069,89.334785 759,82.7326078 C469.336065,156.254352 216.336065,153.6679 0,74.9732496"
+							opacity="0.100000001"></path>
+						<path
+							d="M100,104.708498 C277.413333,72.2345949 426.147877,52.5246657 546.203633,45.5787101 C666.259389,38.6327546 810.524845,41.7979068 979,55.0741668 C931.069965,56.122511 810.303266,74.8455141 616.699903,111.243176 C423.096539,147.640838 250.863238,145.462612 100,104.708498 Z"
+							opacity="0.100000001"></path>
+						<path
+							d="M1046,51.6521276 C1130.83045,29.328812 1279.08318,17.607883 1439,40.1656806 L1439,120 C1271.17211,77.9435312 1140.17211,55.1609071 1046,51.6521276 Z"
+							opacity="0.200000003"></path>
+					</g>
+				</g>
+			</g>
+		</g>
+	</svg>
+
+	<!-- SECTION CONTACT-->
+
+	<section class="container mx-auto text-center py-6 mb-12" id="gitPush">
+
+		<h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white">Pierre faut cliquer</h1>
+		<div class="w-full mb-4">
+			<div class="h-1 mx-auto bg-white w-1/6 opacity-25 my-0 py-0 rounded-t"></div>
+		</div>
+
+		<h3 class="my-4 text-2xl leading-tight">Pour aller voir tous mes git push appuie sur le bouton !</h3>
+
+		<div class="w-full mt-4">
+			<a class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg" href="https://github.com/FiguerasMaxime">Pour voir mes git push!</a>
+		</div>
+	</section>
+
+	<script>
+
+		var scrollpos = window.scrollY;
+		var header = document.getElementById("header");
+		var navcontent = document.getElementById("nav-content");
+		var navaction = document.getElementById("navAction");
+		var brandname = document.getElementById("brandname");
+		var toToggle = document.querySelectorAll(".toggleColour");
+
+		document.addEventListener('scroll', function () {
+
+			/*Apply classes for slide in bar*/
+			scrollpos = window.scrollY;
+
+			if (scrollpos > 10) {
+				header.classList.add("bg-white");
+				navaction.classList.remove("bg-white");
+				navaction.classList.add("gradient");
+				navaction.classList.remove("text-gray-800");
+				navaction.classList.add("text-white");
+				//Use to switch toggleColour colours
+				for (var i = 0; i < toToggle.length; i++) {
+					toToggle[i].classList.add("text-gray-800");
+					toToggle[i].classList.remove("text-white");
+				}
+				header.classList.add("shadow");
+				navcontent.classList.remove("bg-gray-100");
+				navcontent.classList.add("bg-white");
+			}
+			else {
+				header.classList.remove("bg-white");
+				navaction.classList.remove("gradient");
+				navaction.classList.add("bg-white");
+				navaction.classList.remove("text-white");
+				navaction.classList.add("text-gray-800");
+				//Use to switch toggleColour colours
+				for (var i = 0; i < toToggle.length; i++) {
+					toToggle[i].classList.add("text-white");
+					toToggle[i].classList.remove("text-gray-800");
+				}
+
+				header.classList.remove("shadow");
+				navcontent.classList.remove("bg-white");
+				navcontent.classList.add("bg-gray-100");
+
+			}
+
+		});
+
+
+	</script>
+
+	<script>
+
+
+		/*Toggle dropdown list*/
+		/*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
+
+		var navMenuDiv = document.getElementById("nav-content");
+		var navMenu = document.getElementById("nav-toggle");
+
+		document.onclick = check;
+		function check(e) {
+			var target = (e && e.target) || (event && event.srcElement);
+
+			//Nav Menu
+			if (!checkParent(target, navMenuDiv)) {
+				// click NOT on the menu
+				if (checkParent(target, navMenu)) {
+					// click on the link
+					if (navMenuDiv.classList.contains("hidden")) {
+						navMenuDiv.classList.remove("hidden");
+					} else { navMenuDiv.classList.add("hidden"); }
+				} else {
+					// click both outside link and outside menu, hide menu
+					navMenuDiv.classList.add("hidden");
+				}
+			}
+
+		}
+		function checkParent(t, elm) {
+			while (t.parentNode) {
+				if (t == elm) { return true; }
+				t = t.parentNode;
+			}
+			return false;
+		}
+	</script>
+
+
+</body>
+
+</html>
